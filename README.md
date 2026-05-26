@@ -6,12 +6,16 @@
 
 [scheduled_scaling_shareable.ipynb](scheduled_scaling_shareable.ipynb) is a working example of how to programmatically scale a Microsoft Fabric capacity SKU from a notebook running inside a Fabric workspace. The intended use case is running it on a schedule so a capacity can, for example, scale up before business hours and scale back down at the end of the day to control cost.
 
+This notebook is a simpler, schedule-driven variant of the more comprehensive autoscale example in the [FabricTools / CapacityAutoScale](https://github.com/bretamyers/FabricTools/blob/main/CapacityAutoScale/NB_CapacityAutoScale.ipynb) repository. This example focuses on the simpler case of scaling on a fixed schedule (for example, up in the morning and down in the evening) and trims the code down to the minimum needed to do that.
+
 The notebook:
 
 1. Reads service principal credentials from Azure Key Vault.
 2. Acquires Microsoft Entra tokens for the Power BI and Azure Resource Manager audiences.
 3. Calls the `Microsoft.Fabric/capacities` REST API to PATCH the capacity to a target SKU.
 4. Polls the capacity until the provisioning state reports `Succeeded`.
+
+> **Note on scaling between F256 and F512:** Per the official documentation, scaling up or down between SKUs at or below F256 and SKUs at or above F512 might result in a slower experience. Plan these transitions accordingly. See [Scale your Fabric capacity](https://learn.microsoft.com/fabric/enterprise/scale-capacity) for details.
 
 ## Prerequisites
 
