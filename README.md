@@ -17,6 +17,8 @@ The notebook:
 
 > **Note on scaling between F256 and F512:** Per the official documentation, scaling up or down between SKUs at or below F256 and SKUs at or above F512 might result in a slower experience. Plan these transitions accordingly. See [Scale your Fabric capacity](https://learn.microsoft.com/fabric/enterprise/scale-capacity) for details.
 
+See the [Fabric Capacities REST API](https://learn.microsoft.com/rest/api/microsoftfabric/fabric-capacities?view=rest-microsoftfabric-2023-11-01) documentation for the full list of REST operations available on `Microsoft.Fabric/capacities` (Get, Update, List, Suspend, Resume, etc.) including the ones this example calls to read and update the capacity SKU.
+
 ## Prerequisites
 
 - A Microsoft Fabric workspace where you can upload and schedule notebooks.
